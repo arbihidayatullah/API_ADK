@@ -12,9 +12,10 @@ class RiwayatController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        //
+        $data = Riwayat::where('user_id', $id)->get();
+        return response()->json(["message" => "success", "history" => $data]);
     }
 
     /**
