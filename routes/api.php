@@ -10,6 +10,7 @@ use App\Http\Controllers\TipeController;
 use App\Http\Controllers\UraianController;
 use App\Models\Diagnosa;
 use Symfony\Component\HttpKernel\DataCollector\DataCollector;
+use App\Http\Controllers\RiwayatController;
 
 /*
 |--------------------------------------------------------------------------
@@ -61,3 +62,5 @@ Route::get('uraian', [UraianController::class, 'index']);
 Route::post('uraian', [UraianController::class, 'store']);
 Route::put('/uraian/{id}', [UraianController::class, 'update']);
 Route::delete('/uraian/{id}', [UraianController::class, 'destroy']);
+
+Route::get('history/{id}', [RiwayatController::class, 'index']);
