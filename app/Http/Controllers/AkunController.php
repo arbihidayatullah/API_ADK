@@ -42,6 +42,7 @@ class AkunController extends Controller
         $akun->email = $request->email;
         $akun->phone_number = $request->phone_number;
         $akun->password = $request->password;
+        $akun->image = $request->image;
         $akun->save();
 
         return response()->json([
@@ -49,6 +50,7 @@ class AkunController extends Controller
             'email' => $akun->email,
             'phone_number' => $akun->phone_number,
             'password' => $akun->password,
+            'image' => $akun->image,
             'result' => 'Create data successfully!',
         ]);
     }
@@ -89,12 +91,14 @@ class AkunController extends Controller
         $email = $request->email;
         $phone_number = $request->phone_number;
         $password = $request->password;
+        $image = $request->image;
 
         $akun = Akun::find($id);
         $akun->username = $username;
         $akun->email = $email;
         $akun->phone_number = $phone_number;
         $akun->password = $password;
+        $akun->image = $image;
         $akun->save();
 
         return response()->json([
@@ -102,6 +106,7 @@ class AkunController extends Controller
             'email' => $akun->email,
             'phone_number' => $akun->phone_number,
             'password' => $akun->password,
+            'image' => $akun->image,
             'result' => 'data successfully updated!',
         ]);
     }

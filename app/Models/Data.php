@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Data extends Model
 {
     use HasFactory;
+
+    public function tipe()
+    {
+        return $this->belongsTo(Tipe::class);
+    }
 }

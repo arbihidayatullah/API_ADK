@@ -15,6 +15,7 @@ class UraianController extends Controller
     public function index()
     {
         //
+        return Uraian::all();
     }
 
     /**
@@ -36,6 +37,16 @@ class UraianController extends Controller
     public function store(Request $request)
     {
         //
+        $uraian = new Uraian();
+        $uraian->nama = $request->nama;
+        $uraian->intervensi_id = $request->intervensi_id;
+        $uraian->save();
+
+        return response()->json([
+            'nama' => $uraian->nama,
+            'intervensi_id' => $uraian->intervensi_id,
+            'result' => 'Create data successfully!'
+        ]);
     }
 
     /**
@@ -67,9 +78,22 @@ class UraianController extends Controller
      * @param  \App\Models\Uraian  $uraian
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Uraian $uraian)
+    public function update(Request $request, $id)
     {
         //
+        $nama = $request->nama;
+        $intervensi_id = $request->intervensi_id;
+
+        $uraian = Uraian::find($id);
+        $uraian->nama = $nama;
+        $uraian->intervensi_id = $intervensi_id;
+        $uraian->save();
+
+        return response()->json([
+            'nama' => $uraian->nama,
+            'intervensi_id' => $uraian->intervensi_id,
+            'result' => 'Data successfully updated!'
+        ]);
     }
 
     /**
@@ -78,8 +102,10 @@ class UraianController extends Controller
      * @param  \App\Models\Uraian  $uraian
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Uraian $uraian)
+    public function destroy($id)
     {
         //
+        $uraian = Uraian::find($id);
+        $uraian->delete();
     }
 }

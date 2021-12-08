@@ -15,6 +15,7 @@ class DiagnosaController extends Controller
     public function index()
     {
         //
+        return Diagnosa::all();
     }
 
     /**
@@ -36,6 +37,16 @@ class DiagnosaController extends Controller
     public function store(Request $request)
     {
         //
+        $diagnosa = new Diagnosa;
+        $diagnosa->nama = $request->nama;
+        $diagnosa->tipe_id = $request->tipe_id;
+        $diagnosa->save();
+
+        return response()->json([
+            'nama' => $diagnosa->nama,
+            'tipe_id' => $diagnosa->tipe_id,
+            'result' => 'Create data successfully!'
+        ]);
     }
 
     /**
@@ -67,9 +78,22 @@ class DiagnosaController extends Controller
      * @param  \App\Models\Diagnosa  $diagnosa
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Diagnosa $diagnosa)
+    public function update(Request $request, $id)
     {
         //
+        $nama = $request->nama;
+        $tipe_id = $request->tipe_id;
+
+        $diagnosa = Diagnosa::find($id);
+        $diagnosa->nama = $nama;
+        $diagnosa->tipe_id = $tipe_id;
+        $diagnosa->save();
+
+        return response()->json([
+            'nama' => $diagnosa->nama,
+            'tipe_id' => $diagnosa->tipe_id,
+            'result' => 'Data successfully updated!'
+        ]);
     }
 
     /**
@@ -78,8 +102,10 @@ class DiagnosaController extends Controller
      * @param  \App\Models\Diagnosa  $diagnosa
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Diagnosa $diagnosa)
+    public function destroy($id)
     {
         //
+        $diagnosa = Diagnosa::find($id);
+        $diagnosa->delete();
     }
 }

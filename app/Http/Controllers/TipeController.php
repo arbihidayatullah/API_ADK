@@ -15,6 +15,7 @@ class TipeController extends Controller
     public function index()
     {
         //
+        return Tipe::all();
     }
 
     /**
@@ -36,6 +37,16 @@ class TipeController extends Controller
     public function store(Request $request)
     {
         //
+        $tipe = new Tipe;
+        $tipe->nama = $request->nama;
+        $tipe->image = $request->image;
+        $tipe->save();
+
+        return response()->json([
+            'nama' => $tipe->nama,
+            'image' => $tipe->image,
+            'result' => 'Create data successfully!'
+        ]);
     }
 
     /**
@@ -67,9 +78,22 @@ class TipeController extends Controller
      * @param  \App\Models\Tipe  $tipe
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Tipe $tipe)
+    public function update(Request $request, $id)
     {
         //
+        $nama = $request->nama;
+        $image = $request->image;
+
+        $tipe = Tipe::find($id);
+        $tipe->nama = $nama;
+        $tipe->image = $image;
+        $tipe->save();
+
+        return response()->json([
+            'nama' => $tipe->nama,
+            'image' => $tipe->image,
+            'result' => 'Data successfully updated!'
+        ]);
     }
 
     /**
@@ -78,8 +102,10 @@ class TipeController extends Controller
      * @param  \App\Models\Tipe  $tipe
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Tipe $tipe)
+    public function destroy($id)
     {
         //
+        $tipe = Tipe::find($id);
+        $tipe->delete();
     }
 }

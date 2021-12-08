@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Diagnosa extends Model
 {
     use HasFactory;
+
+    public function tipe()
+    {
+        return $this->belongsTo(Tipe::class);
+    }
 }

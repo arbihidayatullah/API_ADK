@@ -15,6 +15,7 @@ class IntervensiController extends Controller
     public function index()
     {
         //
+        return Intervensi::all();
     }
 
     /**
@@ -36,6 +37,16 @@ class IntervensiController extends Controller
     public function store(Request $request)
     {
         //
+        $intervensi = new Intervensi;
+        $intervensi->nama = $request->nama;
+        $intervensi->diagnosa_id = $request->diagnosa_id;
+        $intervensi->save();
+
+        return response()->json([
+            'nama' => $intervensi->nama,
+            'diagnosa_id' => $intervensi->diagnosa_id,
+            'result' => 'Create data successfully!'
+        ]);
     }
 
     /**
@@ -67,9 +78,22 @@ class IntervensiController extends Controller
      * @param  \App\Models\Intervensi  $intervensi
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Intervensi $intervensi)
+    public function update(Request $request, $id)
     {
         //
+        $nama = $request->nama;
+        $diagnosa_id = $request->diagnosa_id;
+
+        $intervensi = Intervensi::find($id);
+        $intervensi->nama = $nama;
+        $intervensi->diagnosa_id = $diagnosa_id;
+        $intervensi->save();
+
+        return response()->json([
+            'nama' => $intervensi->nama,
+            'diagnosa_id' => $intervensi->diagnosa_id,
+            'result' => 'Data successfully updated!'
+        ]);
     }
 
     /**
@@ -78,8 +102,10 @@ class IntervensiController extends Controller
      * @param  \App\Models\Intervensi  $intervensi
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Intervensi $intervensi)
+    public function destroy($id)
     {
         //
+        $intervensi = Intervensi::find($id);
+        $intervensi->delete();
     }
 }

@@ -15,6 +15,7 @@ class DataController extends Controller
     public function index()
     {
         //
+        return Data::all();
     }
 
     /**
@@ -36,6 +37,18 @@ class DataController extends Controller
     public function store(Request $request)
     {
         //
+        $data = new Data;
+        $data->nama = $request->nama;
+        $data->skor = $request->skor;
+        $data->tipe_id = $request->tipe_id;
+        $data->save();
+
+        return response()->json([
+            'nama' => $data->nama,
+            'skor' => $data->skor,
+            'tipe_id' => $data->tipe_id,
+            'result' => 'Create data successfully!'
+        ]);
     }
 
     /**
@@ -67,9 +80,25 @@ class DataController extends Controller
      * @param  \App\Models\Data  $data
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Data $data)
+    public function update(Request $request, $id)
     {
         //
+        $nama = $request->nama;
+        $skor = $request->skor;
+        $tipe_id = $request->tipe_id;
+
+        $data = Data::find($id);
+        $data->nama = $nama;
+        $data->skor = $skor;
+        $data->tipe_id = $tipe_id;
+        $data->save();
+
+        return response()->json([
+            'nama' => $data->nama,
+            'skor' => $data->skor,
+            'tipe_id' => $data->tipe_id,
+            'result' => 'Data successfully updated!'
+        ]);
     }
 
     /**
@@ -78,8 +107,10 @@ class DataController extends Controller
      * @param  \App\Models\Data  $data
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Data $data)
+    public function destroy($id)
     {
         //
+        $data = Data::find($id);
+        $data->delete();
     }
 }
