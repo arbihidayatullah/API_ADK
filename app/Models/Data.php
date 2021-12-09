@@ -8,9 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Data extends Model
 {
     use HasFactory;
+    protected $guarded = ['id'];
+    protected $with = ['tipe'];
 
     public function tipe()
     {
-        return $this->belongsTo(Tipe::class);
+        return $this->belongsTo(Tipe::class, 'tipe_id');
     }
 }
