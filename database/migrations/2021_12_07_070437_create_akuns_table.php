@@ -17,7 +17,7 @@ class CreateAkunsTable extends Migration
             $table->id();
             $table->string('username');
             $table->string('email');
-            $table->integer('phone_number');
+            $table->string('phone_number');
             $table->string('password');
             $table->string('image');
             $table->timestamps();

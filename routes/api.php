@@ -30,6 +30,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //akun
 Route::get('akun', [AkunController::class, 'index']);
 Route::post('akun', [AkunController::class, 'store']);
+Route::post('login', [AkunController::class, 'show']);
 Route::put('/akun/{id}', [AkunController::class, 'update']);
 Route::delete('/akun/{id}', [AkunController::class, 'destroy']);
 
