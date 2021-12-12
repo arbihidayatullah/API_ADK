@@ -76,7 +76,7 @@ class AkunController extends Controller
         if (!$row) {
             $data = [
                 'status' => false,
-                'message' => 'Unregistered email!',
+                'message' => 'Unregistered username!',
             ];
             return response()->json($data, 401);
         } else {
