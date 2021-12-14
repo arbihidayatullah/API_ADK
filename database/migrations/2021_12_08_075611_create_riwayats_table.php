@@ -13,11 +13,11 @@ class CreateRiwayatsTable extends Migration
      */
     public function up()
     {
-        Schema::create('riwayats', function (Blueprint $table) {
+        Schema::create('riwayat_uraian', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
+            $table->foreignId('akun_id');
             $table->foreignId('uraian_id');
-            $table->foreignId('data_id');
+            $table->integer('sesi');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateRiwayatsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('riwayats');
+        Schema::dropIfExists('riwayat_uraian');
     }
 }
