@@ -17,42 +17,42 @@ class TipeSeeder extends Seeder
         //
         Tipe::create([
             'nama' => 'Respirasi',
-            'image' => ''
+            'image' => 'images/Diagnosa_IconRespirasi.png'
         ]);
 
         Tipe::create([
             'nama' => 'Rasa Nyaman',
-            'image' => ''
+            'image' => 'images/Diagnosa_IconRasaNyaman.png'
         ]);
 
         Tipe::create([
             'nama' => 'Aktivitas dan Istirahat',
-            'image' => ''
+            'image' => 'images/Diagnosa_IconAktivitas.png'
         ]);
 
         Tipe::create([
             'nama' => 'Nutrisi dan Cairan',
-            'image' => ''
+            'image' => 'images/Diagnosa_IconNutrisi.png'
         ]);
 
         Tipe::create([
             'nama' => 'Keamanan dan Proteksi',
-            'image' => ''
+            'image' => 'images/Diagnosa_IconKeamanandanProteksi.png'
         ]);
 
         Tipe::create([
             'nama' => 'Sirkulasi',
-            'image' => ''
+            'image' => 'images/Diagnosa_IconSirkulasi.png'
         ]);
 
         Tipe::create([
             'nama' => 'Eliminasi',
-            'image' => ''
+            'image' => 'images/Diagnosa_IconEliminasi.png'
         ]);
 
         Tipe::create([
             'nama' => 'Perilaku',
-            'image' => ''
+            'image' => 'images/Diagnosa_IconPrilaku.png'
         ]);
     }
 }
