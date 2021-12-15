@@ -115,7 +115,7 @@ class DiagnosaController extends Controller
     public function diagnosalist($id)
     {
         $diagnosalist = DB::table('diagnosas')
-            ->select('nama')
+            ->select('id', 'nama', 'tipe_id', 'created_at', 'updated_at')
             ->where('tipe_id', $id)
             ->get();
 
