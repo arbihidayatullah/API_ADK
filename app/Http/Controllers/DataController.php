@@ -123,7 +123,10 @@ class DataController extends Controller
             ->where('tipe_id', $id)
             ->get();
 
-        echo "<pre>";
-        print_r($datalist);
+        // echo "<pre>";
+        // print_r($datalist);
+        return response()->json(
+            $datalist
+        );
     }
 }

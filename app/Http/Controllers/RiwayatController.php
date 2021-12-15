@@ -89,7 +89,8 @@ class RiwayatController extends Controller
     {
         $riwayaturaian = DB::select("CALL selectDataRiwayatGejala(" . $akun . ")");
 
-        echo "<pre>";
-        print_r($riwayaturaian);
+        // echo "<pre>";
+        // print_r($riwayaturaian);
+        return response()->json($riwayaturaian);
     }
 }

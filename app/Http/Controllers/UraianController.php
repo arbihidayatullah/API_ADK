@@ -118,7 +118,8 @@ class UraianController extends Controller
             ->where('intervensi_id', $id)
             ->get();
 
-        echo "<pre>";
-        print_r($uraianlist);
+        // echo "<pre>";
+        // print_r($uraianlist);
+        return response()->json($uraianlist);
     }
 }
