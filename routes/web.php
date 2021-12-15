@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\TipeController;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 /*

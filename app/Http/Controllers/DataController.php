@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Data;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DataController extends Controller
 {
@@ -112,5 +113,17 @@ class DataController extends Controller
         //
         $data = Data::find($id);
         $data->delete();
+    }
+
+    //-------------------------------------
+    public function datalist($id)
+    {
+        $datalist = DB::table('data')
+            ->select('nama', 'skor')
+            ->where('tipe_id', $id)
+            ->get();
+
+        echo "<pre>";
+        print_r($datalist);
     }
 }

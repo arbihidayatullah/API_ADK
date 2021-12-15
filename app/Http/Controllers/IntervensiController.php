@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Intervensi;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class IntervensiController extends Controller
 {
@@ -107,5 +108,17 @@ class IntervensiController extends Controller
         //
         $intervensi = Intervensi::find($id);
         $intervensi->delete();
+    }
+
+    //---------------------------
+    public function intervensilist($id)
+    {
+        $intervensilist = DB::table('intervensis')
+            ->select('nama')
+            ->where('diagnosa_id', $id)
+            ->get();
+
+        echo "<pre>";
+        print_r($intervensilist);
     }
 }
