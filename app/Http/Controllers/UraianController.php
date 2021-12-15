@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Uraian;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class UraianController extends Controller
 {
@@ -107,5 +108,17 @@ class UraianController extends Controller
         //
         $uraian = Uraian::find($id);
         $uraian->delete();
+    }
+
+    //---------------------------
+    public function uraianlist($id)
+    {
+        $uraianlist = DB::table('uraians')
+            ->select('nama')
+            ->where('intervensi_id', $id)
+            ->get();
+
+        echo "<pre>";
+        print_r($uraianlist);
     }
 }

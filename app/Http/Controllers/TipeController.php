@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Tipe;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use PhpParser\Node\Stmt\Echo_;
 
 class TipeController extends Controller
 {
@@ -107,5 +109,32 @@ class TipeController extends Controller
         //
         $tipe = Tipe::find($id);
         $tipe->delete();
+    }
+
+
+
+    //----------------------------
+    /**
+     *
+     * @param  \App\Models\Tipe  $listtipe
+     * @return \Illuminate\Http\Response
+     */
+    public function listTipe()
+    {
+        $listtipe = DB::select("CALL selectTipe()");
+
+        echo "<pre>";
+        print_r($listtipe);
+    }
+
+    public function tipelist($id)
+    {
+        $tipelist = DB::table('tipes')
+            ->select('nama', 'image')
+            ->where('id', $id)
+            ->first();
+
+        echo "<pre>";
+        print_r($tipelist);
     }
 }

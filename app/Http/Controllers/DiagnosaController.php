@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Diagnosa;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DiagnosaController extends Controller
 {
@@ -107,5 +108,18 @@ class DiagnosaController extends Controller
         //
         $diagnosa = Diagnosa::find($id);
         $diagnosa->delete();
+    }
+
+
+    //---------------------------
+    public function diagnosalist($id)
+    {
+        $diagnosalist = DB::table('diagnosas')
+            ->select('nama')
+            ->where('tipe_id', $id)
+            ->get();
+
+        echo "<pre>";
+        print_r($diagnosalist);
     }
 }

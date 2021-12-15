@@ -5,12 +5,15 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AkunController;
 use App\Http\Controllers\DataController;
 use App\Http\Controllers\DiagnosaController;
+use App\Http\Controllers\GetDataController;
 use App\Http\Controllers\IntervensiController;
 use App\Http\Controllers\TipeController;
 use App\Http\Controllers\UraianController;
 use App\Models\Diagnosa;
+use App\Models\Tipe;
 use Symfony\Component\HttpKernel\DataCollector\DataCollector;
 use App\Http\Controllers\RiwayatController;
+use App\Models\Intervensi;
 
 /*
 |--------------------------------------------------------------------------
@@ -65,3 +68,12 @@ Route::put('/uraian/{id}', [UraianController::class, 'update']);
 Route::delete('/uraian/{id}', [UraianController::class, 'destroy']);
 
 Route::get('history/{id}', [RiwayatController::class, 'index']);
+
+
+//ambil data tipe
+Route::get('list-tipe', [TipeController::class, 'listTipe']);
+Route::get('/tipe-list/{id}', [TipeController::class, 'tipelist']);
+Route::get('/data-list/{id}', [DataController::class, 'datalist']);
+Route::get('/diagnosa-list/{id}', [DiagnosaController::class, 'diagnosalist']);
+Route::get('/intervensi-list/{id}', [IntervensiController::class, 'intervensilist']);
+Route::get('/uraian-list/{id}', [UraianController::class, 'uraianlist']);
