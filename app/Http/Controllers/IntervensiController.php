@@ -118,7 +118,7 @@ class IntervensiController extends Controller
     public function intervensilist($id)
     {
         $intervensilist = DB::table('intervensis')
-            ->select('nama')
+            ->select('id', 'nama', 'diagnosa_id', 'created_at', 'updated_at')
             ->where('diagnosa_id', $id)
             ->get();
 

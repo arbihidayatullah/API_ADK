@@ -130,7 +130,7 @@ class TipeController extends Controller
     public function tipelist($id)
     {
         $tipelist = DB::table('tipes')
-            ->select('nama', 'image')
+            ->select('id', 'nama', 'image', 'created_at', 'updated_at')
             ->where('id', $id)
             ->first();
 
