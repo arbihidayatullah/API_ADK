@@ -134,7 +134,8 @@ class TipeController extends Controller
             ->where('id', $id)
             ->first();
 
-        echo "<pre>";
-        print_r($tipelist);
+        // echo "<pre>";
+        // print_r($tipelist);
+        return response()->json($tipelist);
     }
 }

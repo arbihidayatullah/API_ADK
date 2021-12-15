@@ -119,7 +119,8 @@ class DiagnosaController extends Controller
             ->where('tipe_id', $id)
             ->get();
 
-        echo "<pre>";
-        print_r($diagnosalist);
+        // echo "<pre>";
+        // print_r($diagnosalist);
+        return response()->json($diagnosalist);
     }
 }

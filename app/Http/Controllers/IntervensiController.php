@@ -122,7 +122,8 @@ class IntervensiController extends Controller
             ->where('diagnosa_id', $id)
             ->get();
 
-        echo "<pre>";
-        print_r($intervensilist);
+        // echo "<pre>";
+        // print_r($intervensilist);
+        return response()->json($intervensilist);
     }
 }
