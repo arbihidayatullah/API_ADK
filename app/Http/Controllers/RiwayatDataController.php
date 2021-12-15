@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Riwayat_data;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class RiwayatDataController extends Controller
 {
@@ -83,5 +84,13 @@ class RiwayatDataController extends Controller
     public function destroy(Riwayat_data $riwayat_data)
     {
         //
+    }
+
+    public function listRiwayatGejala($akun)
+    {
+        $riwayatgejala = DB::select("CALL selectDataRiwayatGejala(" . $akun . ")");
+
+        echo "<pre>";
+        print_r($riwayatgejala);
     }
 }

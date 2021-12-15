@@ -13,6 +13,7 @@ use App\Models\Diagnosa;
 use App\Models\Tipe;
 use Symfony\Component\HttpKernel\DataCollector\DataCollector;
 use App\Http\Controllers\RiwayatController;
+use App\Http\Controllers\RiwayatDataController;
 use App\Models\Intervensi;
 
 /*
@@ -77,3 +78,6 @@ Route::get('/data-list/{id}', [DataController::class, 'datalist']);
 Route::get('/diagnosa-list/{id}', [DiagnosaController::class, 'diagnosalist']);
 Route::get('/intervensi-list/{id}', [IntervensiController::class, 'intervensilist']);
 Route::get('/uraian-list/{id}', [UraianController::class, 'uraianlist']);
+
+Route::get('/riwayat-uraian/{akun}', [RiwayatController::class, 'listRiwayatUraian']);
+Route::get('/riwayat-gejala/{akun}', [RiwayatDataController::class, 'listRiwayatGejala']);
