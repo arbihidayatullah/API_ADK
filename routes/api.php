@@ -51,6 +51,7 @@ Route::delete('/diagnosa/{id}', [DiagnosaController::class, 'destroy']);
 
 //intervensi
 Route::get('intervensi', [IntervensiController::class, 'index']);
+Route::get('intervensi/{id}', [IntervensiController::class, 'show']);
 Route::post('intervensi', [IntervensiController::class, 'store']);
 Route::put('/intervensi/{id}', [IntervensiController::class, 'update']);
 Route::delete('/intervensi/{id}', [IntervensiController::class, 'destroy']);

@@ -56,11 +56,15 @@ class IntervensiController extends Controller
      * @param  \App\Models\Intervensi  $intervensi
      * @return \Illuminate\Http\Response
      */
-    public function show(Intervensi $intervensi)
+    public function show($id)
     {
-        //
+        $data = Intervensi::where('diagnosa_id', $id)->get();
+        return response()->json([
+            'message' => 'success',
+            'data' => $data,
+        ]);
     }
-
+    
     /**
      * Show the form for editing the specified resource.
      *
