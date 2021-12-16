@@ -53,6 +53,7 @@ Route::delete('/diagnosa/{id}', [DiagnosaController::class, 'destroy']);
 
 //intervensi
 Route::get('intervensi', [IntervensiController::class, 'index']);
+Route::get('intervensi/{id}', [IntervensiController::class, 'show']);
 Route::post('intervensi', [IntervensiController::class, 'store']);
 Route::put('/intervensi/{id}', [IntervensiController::class, 'update']);
 Route::delete('/intervensi/{id}', [IntervensiController::class, 'destroy']);
@@ -80,6 +81,7 @@ Route::get('/diagnosa-list/{id}', [DiagnosaController::class, 'diagnosalist']);
 Route::get('/intervensi-list/{id}', [IntervensiController::class, 'intervensilist']);
 Route::get('/uraian-list/{id}', [UraianController::class, 'uraianlist']);
 
+<<<<<<< HEAD
 //untuk ambil data riwayat dengan procedure
 Route::get('/riwayat-uraian/{akun}', [RiwayatUraianController::class, 'listRiwayatUraian']);
 
@@ -95,3 +97,7 @@ Route::get('rdata', [RiwayatDataController::class, 'index']);
 
 //untuk ambil data riwayat dengan procedure
 Route::get('/riwayat-gejala/{akun}', [RiwayatDataController::class, 'listRiwayatGejala']);
+=======
+Route::get('/riwayat-uraian/{akun}', [RiwayatController::class, 'listRiwayatUraian']);
+Route::get('/riwayat-gejala/{akun}', [RiwayatDataController::class, 'listRiwayatGejala']);
+>>>>>>> bbbdb883561c2ef2455a1799cc1816285dd8734d
