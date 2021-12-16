@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRiwayatsTable extends Migration
+class RiwayatUraian extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,8 @@ class CreateRiwayatsTable extends Migration
      */
     public function up()
     {
-        Schema::create('riwayat_uraian', function (Blueprint $table) {
+        //
+        Schema::create('riwayat_uraians', function (Blueprint $table) {
             $table->id();
             $table->foreignId('akun_id');
             $table->foreignId('uraian_id');
@@ -29,6 +30,7 @@ class CreateRiwayatsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('riwayat_uraian');
+        //
+        Schema::dropIfExists('riwayat_uraians');
     }
 }

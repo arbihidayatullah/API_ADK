@@ -13,11 +13,12 @@ class RiwayatDataController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id)
+    public function index()
     {
         //
-        $data = Riwayat_data::where('user_id', $id)->get();
-        return response()->json(["message" => "success", "history" => $data]);
+        // $data = Riwayat_data::where('user_id', $id)->get();
+        // return response()->json(["message" => "success", "history" => $data]);
+        return Riwayat_data::all();
     }
 
     /**
@@ -39,6 +40,18 @@ class RiwayatDataController extends Controller
     public function store(Request $request)
     {
         //
+        $ruraian = new Riwayat_data();
+        $ruraian->akun_id = $request->akun_id;
+        $ruraian->data_id = $request->data_id;
+        $ruraian->sesi = $request->sesi;
+        $ruraian->save();
+
+        return response()->json([
+            'akun_id' => $ruraian->akun_id,
+            'data_id' => $ruraian->data_id,
+            'sesi' => $ruraian->sesi,
+            'result' => 'Create data successfully!'
+        ]);
     }
 
     /**

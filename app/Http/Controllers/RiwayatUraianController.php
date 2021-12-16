@@ -2,21 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Riwayat;
+use App\Models\Riwayat_uraian;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class RiwayatController extends Controller
+class RiwayatUraianController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id)
+    public function index()
     {
-        $data = Riwayat::where('user_id', $id)->get();
-        return response()->json(["message" => "success", "history" => $data]);
+        //
+        return Riwayat_uraian::all();
     }
 
     /**
@@ -38,15 +38,27 @@ class RiwayatController extends Controller
     public function store(Request $request)
     {
         //
+        $ruraian = new Riwayat_uraian;
+        $ruraian->akun_id = $request->akun_id;
+        $ruraian->uraian_id = $request->uraian_id;
+        $ruraian->sesi = $request->sesi;
+        $ruraian->save();
+
+        return response()->json([
+            'akun_id' => $ruraian->akun_id,
+            'uraian_id' => $ruraian->uraian_id,
+            'sesi' => $ruraian->sesi,
+            'result' => 'Create data successfully!'
+        ]);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Riwayat  $riwayat
+     * @param  \App\Models\Riwayat_uraian  $riwayat_uraian
      * @return \Illuminate\Http\Response
      */
-    public function show(Riwayat $riwayat)
+    public function show(Riwayat_uraian $riwayat_uraian)
     {
         //
     }
@@ -54,10 +66,10 @@ class RiwayatController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Riwayat  $riwayat
+     * @param  \App\Models\Riwayat_uraian  $riwayat_uraian
      * @return \Illuminate\Http\Response
      */
-    public function edit(Riwayat $riwayat)
+    public function edit(Riwayat_uraian $riwayat_uraian)
     {
         //
     }
@@ -66,10 +78,10 @@ class RiwayatController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Riwayat  $riwayat
+     * @param  \App\Models\Riwayat_uraian  $riwayat_uraian
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Riwayat $riwayat)
+    public function update(Request $request, Riwayat_uraian $riwayat_uraian)
     {
         //
     }
@@ -77,10 +89,10 @@ class RiwayatController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Riwayat  $riwayat
+     * @param  \App\Models\Riwayat_uraian  $riwayat_uraian
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Riwayat $riwayat)
+    public function destroy(Riwayat_uraian $riwayat_uraian)
     {
         //
     }

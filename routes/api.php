@@ -14,6 +14,7 @@ use App\Models\Tipe;
 use Symfony\Component\HttpKernel\DataCollector\DataCollector;
 use App\Http\Controllers\RiwayatController;
 use App\Http\Controllers\RiwayatDataController;
+use App\Http\Controllers\RiwayatUraianController;
 use App\Models\Intervensi;
 
 /*
@@ -79,5 +80,18 @@ Route::get('/diagnosa-list/{id}', [DiagnosaController::class, 'diagnosalist']);
 Route::get('/intervensi-list/{id}', [IntervensiController::class, 'intervensilist']);
 Route::get('/uraian-list/{id}', [UraianController::class, 'uraianlist']);
 
-Route::get('/riwayat-uraian/{akun}', [RiwayatController::class, 'listRiwayatUraian']);
+//untuk ambil data riwayat dengan procedure
+Route::get('/riwayat-uraian/{akun}', [RiwayatUraianController::class, 'listRiwayatUraian']);
+
+
+
+//api untuk riwayat uraian
+Route::post('ruraian-indexx', [RiwayatUraianController::class, 'store']);
+Route::get('ruraian-indexx', [RiwayatUraianController::class, 'index']);
+
+//api untuk riwayat data
+Route::post('rdata', [RiwayatDataController::class, 'store']);
+Route::get('rdata', [RiwayatDataController::class, 'index']);
+
+//untuk ambil data riwayat dengan procedure
 Route::get('/riwayat-gejala/{akun}', [RiwayatDataController::class, 'listRiwayatGejala']);
