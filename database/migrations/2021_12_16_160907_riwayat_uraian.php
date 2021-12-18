@@ -16,9 +16,8 @@ class RiwayatUraian extends Migration
         //
         Schema::create('riwayat_uraians', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('akun_id');
             $table->foreignId('uraian_id');
-            $table->integer('sesi');
+            $table->foreignId('riwayat_id');
             $table->timestamps();
         });
     }

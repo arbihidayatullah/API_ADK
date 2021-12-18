@@ -96,3 +96,9 @@ Route::get('rdata', [RiwayatDataController::class, 'index']);
 
 //untuk ambil data riwayat dengan procedure
 Route::get('/riwayat-gejala/{akun}', [RiwayatDataController::class, 'listRiwayatGejala']);
+Route::get('/riwayat-uraian/{akun}', [RiwayatController::class, 'listRiwayatUraian']);
+Route::get('/riwayat-gejala/{akun}', [RiwayatDataController::class, 'listRiwayatGejala']);
+
+Route::get('/riwayat', [RiwayatController::class, 'index']);
+Route::post('/riwayat', [RiwayatController::class, 'store']);
+Route::get('/riwayat/{id}', [RiwayatController::class, 'show']);
