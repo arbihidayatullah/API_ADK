@@ -10,17 +10,7 @@ class Riwayat_data extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
-    protected $with = ['akun', 'uraian', 'data'];
-
-    public function akun()
-    {
-        return $this->belongsTo(Akun::class, 'user_id');
-    }
-
-    public function uraian()
-    {
-        return $this->belongsTo(Uraian::class, 'uraian_id');
-    }
+    protected $with = ['data'];
 
     public function data()
     {

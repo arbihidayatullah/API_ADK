@@ -81,7 +81,6 @@ Route::get('/diagnosa-list/{id}', [DiagnosaController::class, 'diagnosalist']);
 Route::get('/intervensi-list/{id}', [IntervensiController::class, 'intervensilist']);
 Route::get('/uraian-list/{id}', [UraianController::class, 'uraianlist']);
 
-<<<<<<< HEAD
 //untuk ambil data riwayat dengan procedure
 Route::get('/riwayat-uraian/{akun}', [RiwayatUraianController::class, 'listRiwayatUraian']);
 
@@ -97,7 +96,9 @@ Route::get('rdata', [RiwayatDataController::class, 'index']);
 
 //untuk ambil data riwayat dengan procedure
 Route::get('/riwayat-gejala/{akun}', [RiwayatDataController::class, 'listRiwayatGejala']);
-=======
 Route::get('/riwayat-uraian/{akun}', [RiwayatController::class, 'listRiwayatUraian']);
 Route::get('/riwayat-gejala/{akun}', [RiwayatDataController::class, 'listRiwayatGejala']);
->>>>>>> bbbdb883561c2ef2455a1799cc1816285dd8734d
+
+Route::get('/riwayat', [RiwayatController::class, 'index']);
+Route::post('/riwayat', [RiwayatController::class, 'store']);
+Route::get('/riwayat/{id}', [RiwayatController::class, 'show']);
