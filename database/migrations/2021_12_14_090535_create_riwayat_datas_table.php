@@ -16,7 +16,7 @@ class CreateRiwayatDatasTable extends Migration
         Schema::create('riwayat_datas', function (Blueprint $table) {
             $table->id();
             $table->foreignId('data_id');
-            $table->foreignId('riyawat_id');
+            $table->foreignId('riwayat_id');
             $table->timestamps();
         });
     }

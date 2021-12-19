@@ -40,7 +40,7 @@ class RiwayatDataController extends Controller
     public function store(Request $request)
     {
         //
-        $ruraian = new Riwayat_data();
+        $ruraian = new Riwayat_data;
         $ruraian->data_id = $request->data_id;
         $ruraian->riwayat_id = $request->riwayat_id;
         $ruraian->save();
