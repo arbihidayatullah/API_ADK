@@ -7,6 +7,7 @@ use App\Http\Controllers\DataController;
 use App\Http\Controllers\DiagnosaController;
 use App\Http\Controllers\GetDataController;
 use App\Http\Controllers\IntervensiController;
+use App\Http\Controllers\KategoriUraianController;
 use App\Http\Controllers\TipeController;
 use App\Http\Controllers\UraianController;
 use App\Models\Diagnosa;
@@ -102,3 +103,7 @@ Route::get('/riwayat-gejala/{akun}', [RiwayatDataController::class, 'listRiwayat
 Route::get('/riwayat', [RiwayatController::class, 'index']);
 Route::post('/riwayat', [RiwayatController::class, 'store']);
 Route::get('/riwayat/{id}', [RiwayatController::class, 'show']);
+
+//kategori uraian
+Route::get('kuraian', [KategoriUraianController::class, 'index']);
+Route::post('kuraian', [KategoriUraianController::class, 'store']);

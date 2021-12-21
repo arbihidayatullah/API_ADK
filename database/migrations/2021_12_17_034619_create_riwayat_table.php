@@ -13,7 +13,7 @@ class CreateRiwayatTable extends Migration
      */
     public function up()
     {
-        Schema::create('riwayat', function (Blueprint $table) {
+        Schema::create('riwayats', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
             $table->foreignId('intervensi_id');
@@ -28,6 +28,6 @@ class CreateRiwayatTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('riwayat');
+        Schema::dropIfExists('riwayats');
     }
 }
