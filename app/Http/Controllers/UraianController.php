@@ -113,13 +113,10 @@ class UraianController extends Controller
     //---------------------------
     public function uraianlist($id)
     {
-        $uraianlist = DB::table('uraians')
-            ->select('id', 'nama', 'intervensi_id', 'created_at', 'updated_at')
-            ->where('intervensi_id', $id)
+        $uraianlist = Uraian::
+            where('intervensi_id', $id)
             ->get();
 
-        // echo "<pre>";
-        // print_r($uraianlist);
         return response()->json($uraianlist);
     }
 }

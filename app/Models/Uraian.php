@@ -13,7 +13,7 @@ class Uraian extends Model
 
     public function intervensi()
     {
-        return $this->belongsTo(Intervensi::class, 'intervensi_id');
+        return $this->belongsTo(Intervensi::class);
     }
 
     public function kategori_uraian()
