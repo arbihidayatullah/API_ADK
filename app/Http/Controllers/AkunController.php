@@ -40,7 +40,7 @@ class AkunController extends Controller
     {
         try {
             $validator = Validator::make($request->all(), [
-                'username' => 'required|min:3',
+                'username' => 'required|min:3|unique:akuns',
                 'email' => 'required|email|unique:akuns',
                 'phone_number' => 'required|unique:akuns',
                 'password' => 'required|min:8',

@@ -5,18 +5,13 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AkunController;
 use App\Http\Controllers\DataController;
 use App\Http\Controllers\DiagnosaController;
-use App\Http\Controllers\GetDataController;
 use App\Http\Controllers\IntervensiController;
 use App\Http\Controllers\KategoriUraianController;
 use App\Http\Controllers\TipeController;
 use App\Http\Controllers\UraianController;
-use App\Models\Diagnosa;
-use App\Models\Tipe;
-use Symfony\Component\HttpKernel\DataCollector\DataCollector;
 use App\Http\Controllers\RiwayatController;
 use App\Http\Controllers\RiwayatDataController;
 use App\Http\Controllers\RiwayatUraianController;
-use App\Models\Intervensi;
 
 /*
 |--------------------------------------------------------------------------
